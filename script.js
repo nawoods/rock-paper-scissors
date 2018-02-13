@@ -47,7 +47,13 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function selectPlay(selection) {
-    console.log(playRound("rock", computerPlay()));
+    const round = playRound(selection, computerPlay());
+    
+    gameResult.innerHTML = round;
+    
+//    if (round.slice(0, 5) === "You w") {
+//        
+//    }
 }
 
 let wins = 0;
@@ -56,6 +62,8 @@ let losses = 0;
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+
+const gameResult = document.querySelector('#game-result');
 
 rock.addEventListener('click', () => selectPlay("rock"));
 paper.addEventListener('click', () => selectPlay("paper"));
