@@ -46,36 +46,17 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
-function game() {
-    let wins = 0;
-    let losses = 0;
-    
-    for (let i = 0; i < 5; i++) {
-        let roundText = playRound(playerPlay(), computerPlay());
-        let resultLetter = roundText.slice(4,5);
-        switch (resultLetter) {
-            case 'w':
-                wins++;
-                break;
-            case 'l':
-                losses++;
-                break;
-        }
-        
-        console.log(roundText);
-    }
-   
-    console.log("Wins: " + wins);
-    console.log("Losses: " + losses);
-    
-    if (wins > losses) {
-        console.log("The player wins the match!");
-    } else if (losses > wins) {
-        console.log("The computer wins the match!");
-    } else {
-        console.log("The match is drawn!");
-    }
-    
+function selectPlay(selection) {
+    console.log(playRound("rock", computerPlay()));
 }
 
-game();
+let wins = 0;
+let losses = 0;
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click', () => selectPlay("rock"));
+paper.addEventListener('click', () => selectPlay("paper"));
+scissors.addEventListener('click', () => selectPlay("scissors"));
